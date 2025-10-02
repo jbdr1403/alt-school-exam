@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Okikiola Akinyemi - Server Info</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Reset & Base */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        color: #f8f9fa;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      /* Container Box */
+      .container {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px);
+        border-radius: 16px;
+        padding: 40px;
+        max-width: 600px;
+        width: 100%;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+        text-align: center;
+        animation: fadeIn 1.5s ease-in-out;
+      }
+
+      /* Headings */
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        font-weight: 600;
+        color: #ffffff;
+      }
+
+      .name {
+        background: linear-gradient(to right, #6dd5ed, #2193b0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* Paragraphs */
+      p {
+        font-size: 1.2rem;
+        color: #dcdde1;
+        margin: 10px 0;
+      }
+
+      /* Hostname Flashing */
+      .hostname {
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: #ff7675;
+        animation: flash 1.5s infinite alternate ease-in-out;
+      }
+
+      /* Social Links */
+      .social-links {
+        margin-top: 20px;
+      }
+
+      .social-links a {
+        text-decoration: none;
+        margin: 0 10px;
+        font-size: 1.1rem;
+        color: #74b9ff;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        color: #81ecec;
+        text-decoration: underline;
+      }
+
+      /* Footer */
+      footer {
+        margin-top: 30px;
+        font-size: 0.9rem;
+        color: #b2bec3;
+      }
+
+      /* Animations */
+      @keyframes flash {
+        0% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        100% {
+          opacity: 0.6;
+          transform: scale(1.05);
+        }
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hello, I'm <span class="name">Okikiola Adedamola Akinyemi</span></h1>
+      <p>Welcome to my server! The hostname of this server is:</p>
+      <p class="hostname">{{ ansible_hostname }}</p>
+
+      <div class="social-links">
+        <p>Follow me on:</p>
+        <a href="https://x.com/only1jbdr" target="_blank">Twitter</a>
+        <a href="https://github.com/jbdr1403" target="_blank">GitHub</a>
+      </div>
+
+      <footer>
+        <p>Powered by Ansible & Nginx on AWS EC2</p>
+      </footer>
+    </div>
+  </body>
+</html>
+
