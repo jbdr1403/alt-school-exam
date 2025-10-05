@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Okikiola Akinyemi - Server Info</title>
+    <title>Alt School Exam Project</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
       rel="stylesheet"
@@ -123,7 +123,7 @@
     <div class="container">
       <h1>Hello, I'm <span class="name">Okikiola Adedamola Akinyemi</span></h1>
       <p>Welcome to my server! The hostname of this server is:</p>
-      <p class="hostname">{{ ansible_hostname }}</p>
+      <p class="hostname">{{ ansible_default_ipv4.address }}</p>
 
       <div class="social-links">
         <p>Follow me on:</p>
@@ -137,4 +137,3 @@
     </div>
   </body>
 </html>
-
