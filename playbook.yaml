@@ -1,0 +1,29 @@
+---
+- name: Deploying a static nginx page with hostnames
+  hosts: all
+  become: yes
+  gather_facts: yes
+
+  tasks:
+   
+    - name: Install nginx on webservers
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+        update_cache: yes
+    
+    - name: Remove default nginx html file
+      ansible.builtin.file:
+        path: /var/www/html/index.nginx-debian.html
+        state: absent
+
+    - name: Deploy custom index.html.j2 as index.html using template
+      ansible.builtin.template:
+        src: /home/vagrant/ansible/templates/index.html.j2
+        dest: /var/www/html/index.html
+
+    - name: Start and enable nginx
+      ansible.builtin.systemd:
+        name: nginx
+        state: started
+        enabled: yes
